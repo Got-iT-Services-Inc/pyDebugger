@@ -11,10 +11,10 @@
 
 class pyDebugger
 
-     #Debug Function
-    def DebugLog(self, self.__class__.__name__ + ": " + sString, endd="\n"):
+    #Debug Function
+    def Log(self, sString, endd="\n"):
         if self.__Debug == True:
-            print(sString,end=endd)
+            print(self.__class__.__name__ + ": " + sString,end=endd)
         if self.__LogToFile == True:
             try:
                 with open("/var/log/" + self.__class__.__name__ + ".log", "a+") as logFile:
@@ -23,8 +23,8 @@ class pyDebugger
             except Exception as e:
                 print(self.__class__.__name__ + "_Logging Error: " + str(e))
                 
-    def __init__(self, Debug, LogToFile):
+    def __init__(self,otherself, Debug, LogToFile):
         self.__Debug = Debug
         self.__LogToFile = LogToFile
-        DebugLog(self, "Starting Debugger, Debug="+ Debug + " LogToFile=" + LogToFile)
+        self.Log(otherself, "Starting Debugger, Debug="+ Debug + " LogToFile=" + LogToFile)
     
