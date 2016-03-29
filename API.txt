@@ -1,0 +1,25 @@
+#############################################################
+# Title: Python Debug Class Documenation                    #
+# Description: Documentation for the Debug Module           #
+#              python class                                 #
+# Version:                                                  #
+#   * Document Version 1.0 03/29/2016 RC                    #
+#                                                           #
+# Author: Richard Cintorino (c) Richard Cintorino 2016      #
+#############################################################
+
+pyDebugger Class
+
+    Usage: 
+
+    from Debug import pyDebugger
+    self.Debugger = pyDebugger(self, Debug=False,LogToFile=False)
+
+    Variables:
+        Debug (True | False):
+            True: Display all debug information to stdout
+            False: Display only critical Log based errors to stdout
+  
+        LogToFile (True | False):
+            True: Log all output to /var/log/
+            False: Log nothing to file
