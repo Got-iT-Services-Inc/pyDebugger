@@ -9,22 +9,23 @@
 # Author: Richard Cintorino (c) Richard Cintorino 2016      #
 #############################################################
 
-class pyDebugger
+class pyDebugger:
 
     #Debug Function
     def Log(self, sString, endd="\n"):
         if self.__Debug == True:
-            print(self.__class__.__name__ + ": " + sString,end=endd)
+            print(self.ClassName + ": " + sString,end=endd)
         if self.__LogToFile == True:
             try:
-                with open("/var/log/" + self.__class__.__name__ + ".log", "a+") as logFile:
+                with open("/var/log/" + self.ClassName + ".log", "a+") as logFile:
                     logFile.write(sString+endd)
                     logFile.close()
             except Exception as e:
-                print(self.__class__.__name__ + "_Logging Error: " + str(e))
+                print(self.ClassName + "_Logging Error: " + str(e))
                 
-    def __init__(self,otherself, Debug, LogToFile):
+    def __init__(self,otherSelf, Debug, LogToFile):
         self.__Debug = Debug
         self.__LogToFile = LogToFile
-        self.Log(otherself, "Starting Debugger, Debug="+ Debug + " LogToFile=" + LogToFile)
+        self.ClassName = otherSelf.__class__.__name__
+        self.Log("Starting Debugger, Debug="+ str(Debug) + " LogToFile=" + str(LogToFile))
     
