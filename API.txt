@@ -14,8 +14,9 @@ pyDebugger Class
 
     from Debug import pyDebugger
     self.Debugger = pyDebugger(self, Debug=False,LogToFile=False)
+    self.Debugger.Log(sString, endd='\n')
 
-    Variables:
+    __init__ Variables:
         Debug (True | False):
             True: Display all debug information to stdout
             False: Display only critical Log based errors to stdout
@@ -23,3 +24,10 @@ pyDebugger Class
         LogToFile (True | False):
             True: Log all output to /var/log/
             False: Log nothing to file
+            
+            
+    Log Variables:
+        sString:
+            Arbitrary message to log
+        endd (defaul '\n'):
+            Optional ending string parameter, can be used to write more than once to a single line
