@@ -12,9 +12,13 @@
 class pyDebugger:
 
     #Debug Function
-    def Log(self, sString, endd="\n"):
+    def Log(self, sString, endd="\n",PrintName=True):
+        if PrintName == True:
+            sCN = self.ClassName + ":"
+        else:
+            sCN = ""
         if self.__Debug == True:
-            print(self.ClassName + ": " + sString,end=endd)
+            print(sCN + sString,end=endd)
         if self.__LogToFile == True:
             try:
                 with open("/var/log/" + self.ClassName + ".log", "a+") as logFile:
