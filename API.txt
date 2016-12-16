@@ -13,7 +13,8 @@ pyDebugger Class
     Usage: 
 
     from Debug import pyDebugger
-    self.Debugger = pyDebugger(self, Debug=False,LogToFile=False)
+    self.Debugger = pyDebugger(self, Debug=False,LogToFile=False,
+	DebugLevel="ALL",ShowDebugName=True)
     self.Debugger.Log(sString, endd='\n')
 
     __init__ Variables:
@@ -24,10 +25,20 @@ pyDebugger Class
         LogToFile (True | False):
             True: Log all output to /var/log/
             False: Log nothing to file
+
+        DebugLevel:
+            Comma Separated string of debug levels to log
+
+        ShowDebugName (True | False):
+             Show the debug level name in the output of the log
             
             
     Log Variables:
         sString:
             Arbitrary message to log
-        endd (defaul '\n'):
-            Optional ending string parameter, can be used to write more than once to a single line
+        endd (default '\n'):
+            Optional ending string parameter, can be used to write more than
+            once to a single line
+        DebugLevel (default "ALL"):
+            Optional string for specifying debug level of the incoming log
+            message for filtering based on DebugLevel
