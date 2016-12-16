@@ -15,7 +15,7 @@ class pyDebugger:
     #Debug Function
     def Log(self, sString, endd="\n",PrintName=True, DebugLevel="ALL"):
         sCN = ""
-        if DebugLevel in self.__DebugLevel or DebugLevel="ALL":
+        if DebugLevel in self.__DebugLevel or DebugLevel == "ALL":
             if PrintName == True:
                 if self.__PrintDebugLevel == True:
                     sCN += "[" + DebugLevel + "] "
