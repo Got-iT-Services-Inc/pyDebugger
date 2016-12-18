@@ -10,6 +10,8 @@
 # Author: Richard Cintorino (c) Richard Cintorino 2016      #
 #############################################################
 
+from datetime import datetime
+
 class pyDebugger:
 
     #Debug Function
@@ -26,7 +28,7 @@ class pyDebugger:
             if self.__LogToFile == True:
                 try:
                     with open("/var/log/" + self.ClassName + ".log", "a+") as logFile:
-                        logFile.write(sCN + sString+endd)
+                        logFile.write(str(datetime.now()) + " " + sCN + sString+endd)
                         logFile.close()
                 except Exception as e:
                     print(self.ClassName + "_Logging Error: " + str(e))
