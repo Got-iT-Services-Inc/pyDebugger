@@ -4,8 +4,9 @@
 # Description: Wrapper around Debugging and Logging for any #
 #              python class                                 #
 # Version:                                                  #
-#   * Version 1.0 03/28/2016 RC                             #
-#   * Version 1.1 12/16/2016 RC				    #
+#   * Version 1.00 03/28/2016 RC                            #
+#   * Version 1.10 12/16/2016 RC			    #
+#   * Version 1.11 07/06/2018 RC                            #
 #                                                           #
 # Author: Richard Cintorino (c) Richard Cintorino 2016      #
 #############################################################
@@ -15,10 +16,12 @@ from datetime import datetime
 class pyDebugger:
 
     #Debug Function
-    def Log(self, sString, endd="\n",PrintName=True, DebugLevel="ALL"):
+    def Log(self, sString, endd="\n",PrintName=True, DebugLevel="ALL", PrintTime=True):
         sCN = ""
 
         if DebugLevel in self.__DebugLevel or "ALL" in self.__DebugLevel:
+            if PrintTime == True:
+                sCN += datetime.now().strftime("%Y.%m.%d %H:%M:%S") + " "
             if PrintName == True:
                 if self.__PrintDebugLevel == True:
                     sCN += "[" + DebugLevel + "] "
